@@ -1,6 +1,6 @@
 class Matrix {
 
-    public static int addMatrix(int [][] arr, int row, int col) {
+    public static int addElementsInMatrix(int [][] arr, int row, int col) {
         if(row==arr.length-1 && col==arr[row].length-1)
             return arr[row][col];
         if(col==arr[row].length-1)
