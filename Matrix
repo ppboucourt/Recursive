@@ -1,4 +1,9 @@
 class Matrix {
+    
+    public static void main(String[] args) {
+        int[][] arr = new int[][]{{1, 2, 3, 4},{4, 5, 6, 4},{7, 8, 9, 4}};
+        System.out.println(addMatrix(arr, 0, 0));
+    }
 
     public static int addElementsInMatrix(int [][] arr, int row, int col) {
         if(row==arr.length-1 && col==arr[row].length-1)
@@ -8,8 +13,18 @@ class Matrix {
         return arr[row][col]+addMatrix(arr,row,col+1);
     }
 
-    public static void main(String[] args) {
-        int[][] arr = new int[][]{{1, 2, 3, 4},{4, 5, 6, 4},{7, 8, 9, 4}};
-        System.out.println(addMatrix(arr, 0, 0));
+    //Give it a double array empty, add the values from a single array
+    private static int[][] addElementsToDArray(int[][] arr, int[] elements, int row, int col, int count) {
+        if(count == elements.length -1) {
+            arr[row][col] = elements[count];
+            return arr;
+        }
+        arr[row][col] = elements[count];
+        count++;
+        if(col == arr.length -1) {
+            return addElementsToArray(arr, elements, row +1, 0, count);
+        } else {
+            return addElementsToArray(arr, elements, row, col +1, count);
+        }
     }
 }
